@@ -1,7 +1,7 @@
 return {
   {
-    enabled = false,
     "folke/flash.nvim",
+    enabled = false,
     ---@type Flash.Config
     opts = {
       search = {
@@ -212,15 +212,59 @@ return {
     end,
   },
 
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   enabled = false,
-  -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
+
+  {
+    "folke/which-key.nvim",
+    enabled = false,
+  },
 
   -- markdown
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {},
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
+  },
+
+  -- emmet
+  "mattn/emmet-vim",
+
+  -- snippets
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    build = (not LazyVim.is_win())
+        and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
+      or nil,
+    dependencies = {
+      {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_lua").lazy_load()
+          require("luasnip").filetype_extend("typescriptreact", { "typescript" })
+        end,
+      },
+      {
+        "nvim-cmp",
+        dependencies = {
+          "saadparwaiz1/cmp_luasnip",
+        },
+        opts = function(_, opts)
+          opts.snippet = {
+            expand = function(args)
+              require("luasnip").lsp_expand(args.body)
+            end,
+          }
+          table.insert(opts.sources, { name = "luasnip" })
+        end,
+      },
+    },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
   },
 }

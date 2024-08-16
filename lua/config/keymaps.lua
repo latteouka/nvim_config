@@ -49,10 +49,11 @@ keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
 
 -- Move window
+-- keymap.set("n", "<Space>", "<C-w>w")
 -- keymap.set("n", "<leader><Space>", "<nop>")
 -- keymap.set("n", "<leader><Space><Space>", "<nop>")
 -- keymap.set("n", "<Space>", "<nop>")
--- keymap.set("n", "<Space>", "<C-w>w", { remap = true })
+-- keymap.set("n", "<Space><Space>", "<C-w>w", { remap = true })
 keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
@@ -64,7 +65,33 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
+-- Move line
+keymap.set("n", "<S-Up>", ":m-2<CR>")
+keymap.set("i", "<S-Up>", ":m-2<CR>")
+keymap.set("n", "<S-Down>", ":m+<CR>")
+keymap.set("i", "<S-Down>", ":m+<CR>")
+
+-- Move Block
+keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+
+-- Stay center when Ctrl-d or Ctrl-u or search
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
+
+-- rename
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- wrap
+-- keymap.set("n", "<leader>w", ":set wrap<CR>")
+
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
+end, opts)
+
+keymap.set("n", "<C-k>", function()
+  vim.diagnostic.goto_prev()
 end, opts)
