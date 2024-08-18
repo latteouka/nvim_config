@@ -19,6 +19,9 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
+-- Close Buffer
+keymap.set("n", "Q", ":bdelete<Return>")
+
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
@@ -40,16 +43,19 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
-keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- keymap.set("n", "te", ":tabedit")
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+
+-- keymap.set("n", "<A-Left>", ":-tabmove<cr>")
+-- keymap.set("n", "<A-Right>", ":+tabmove<cr>")
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
 
 -- Move window
--- keymap.set("n", "<Space>", "<C-w>w")
+keymap.set("n", "<Space>", "<C-w>w")
 -- keymap.set("n", "<leader><Space>", "<nop>")
 -- keymap.set("n", "<leader><Space><Space>", "<nop>")
 -- keymap.set("n", "<Space>", "<nop>")

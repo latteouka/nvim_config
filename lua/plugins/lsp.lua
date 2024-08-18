@@ -22,6 +22,14 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
+
+      -- disable virtual_text
+      diagnostics = {
+        virtual_text = false,
+        -- add border
+        float = { border = "rounded" },
+      },
+
       servers = {
         cssls = {},
         tailwindcss = {
@@ -136,6 +144,7 @@ return {
       setup = {},
     },
   },
+
   {
     "neovim/nvim-lspconfig",
     opts = function()

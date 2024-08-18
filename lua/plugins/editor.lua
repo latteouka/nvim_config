@@ -3,14 +3,14 @@ return {
     "folke/flash.nvim",
     enabled = false,
     ---@type Flash.Config
-    opts = {
-      search = {
-        forward = true,
-        multi_window = false,
-        wrap = false,
-        incremental = true,
-      },
-    },
+    -- opts = {
+    --   search = {
+    --     forward = true,
+    --     multi_window = false,
+    --     wrap = false,
+    --     incremental = true,
+    --   },
+    -- },
   },
 
   {
@@ -144,7 +144,7 @@ return {
             respect_gitignore = false,
             hidden = true,
             grouped = true,
-            previewer = false,
+            previewer = true,
             initial_mode = "normal",
             layout_config = { height = 40 },
           })
@@ -187,6 +187,7 @@ return {
               -- your custom normal mode mappings
               ["N"] = fb_actions.create,
               ["h"] = fb_actions.goto_parent_dir,
+              ["c"] = fb_actions.copy,
               ["/"] = function()
                 vim.cmd("startinsert")
               end,
@@ -212,10 +213,10 @@ return {
     end,
   },
 
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   enabled = false,
+  -- },
 
   {
     "folke/which-key.nvim",
@@ -241,16 +242,13 @@ return {
       or nil,
     dependencies = {
       {
-        "rafamadriz/friendly-snippets",
-        config = function()
-          require("luasnip.loaders.from_lua").lazy_load()
-          require("luasnip").filetype_extend("typescriptreact", { "typescript" })
-        end,
-      },
-      {
         "nvim-cmp",
         dependencies = {
           "saadparwaiz1/cmp_luasnip",
+          config = function()
+            require("luasnip.loaders.from_lua").lazy_load()
+            require("luasnip").filetype_extend("typescriptreact", { "typescript" })
+          end,
         },
         opts = function(_, opts)
           opts.snippet = {
