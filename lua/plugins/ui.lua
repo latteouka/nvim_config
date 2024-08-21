@@ -89,6 +89,8 @@ return {
     keys = {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
+      { "<A-Left>", "<Cmd>BufferLineMovePrev<CR>", desc = "Move buffer prev" },
+      { "<A-Right>", "<Cmd>BufferLineMoveNext<CR>", desc = "Move buffer next" },
     },
     opts = {
       options = {
@@ -148,6 +150,27 @@ return {
           readonly_icon = " 󰌾 ",
         }),
       }
+    end,
+  },
+
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    opts = function(_, opts)
+      local logo = [[
+      
+██╗      █████╗ ████████╗████████╗███████╗ ██████╗ ██╗   ██╗██╗  ██╗ █████╗ 
+██║     ██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔═══██╗██║   ██║██║ ██╔╝██╔══██╗
+██║     ███████║   ██║      ██║   █████╗  ██║   ██║██║   ██║█████╔╝ ███████║
+██║     ██╔══██║   ██║      ██║   ██╔══╝  ██║   ██║██║   ██║██╔═██╗ ██╔══██║
+███████╗██║  ██║   ██║      ██║   ███████╗╚██████╔╝╚██████╔╝██║  ██╗██║  ██║
+╚══════╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+                                                                            
+
+      ]]
+
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.config.header = vim.split(logo, "\n")
     end,
   },
 }

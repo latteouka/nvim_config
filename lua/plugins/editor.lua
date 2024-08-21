@@ -141,6 +141,7 @@ return {
           telescope.extensions.file_browser.file_browser({
             path = "%:p:h",
             cwd = telescope_buffer_dir(),
+            select_buffer = true,
             respect_gitignore = false,
             hidden = true,
             grouped = true,
@@ -213,10 +214,10 @@ return {
     end,
   },
 
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   enabled = false,
-  -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
 
   {
     "folke/which-key.nvim",

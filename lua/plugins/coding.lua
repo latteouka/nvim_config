@@ -6,12 +6,6 @@ return {
     config = true,
   },
 
-  -- cmp
-  {
-    "nvim-cmp",
-    lazy = false,
-  },
-
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",

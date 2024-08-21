@@ -87,11 +87,15 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
--- rename
+-- Rename
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- wrap
--- keymap.set("n", "<leader>w", ":set wrap<CR>")
+-- Wrap
+keymap.set("n", "<leader>w", ":set wrap<CR>")
+-- Code Actions
+
+-- LazyVim uses <leader>ca
+keymap.set("n", "<leader>qf", ":lua vim.lsp.buf.code_action()<CR>")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
