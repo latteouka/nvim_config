@@ -148,6 +148,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function()
+      -- sourcekit setup
+      require("lspconfig").sourcekit.setup({})
+
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       vim.list_extend(keys, {
         {

@@ -48,10 +48,10 @@ if vim.fn.has("nvim-0.8") == 1 then
   vim.opt.cmdheight = 0
 end
 
--- emmet leader key
-vim.g.user_emmet_leader_key = ","
-
 -- Hover Border Style
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded", -- You can also use "single", "double", "shadow", or "solid"
 })
+
+-- setup emmet leader key
+vim.g.user_emmet_leader_key = ","

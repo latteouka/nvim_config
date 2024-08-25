@@ -1,19 +1,5 @@
 return {
   {
-    "folke/flash.nvim",
-    enabled = false,
-    ---@type Flash.Config
-    -- opts = {
-    --   search = {
-    --     forward = true,
-    --     multi_window = false,
-    --     wrap = false,
-    --     incremental = true,
-    --   },
-    -- },
-  },
-
-  {
     "echasnovski/mini.hipatterns",
     event = "BufReadPre",
     opts = {
@@ -212,16 +198,6 @@ return {
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
     end,
-  },
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
-  },
-
-  {
-    "folke/which-key.nvim",
-    enabled = false,
   },
 
   -- markdown
