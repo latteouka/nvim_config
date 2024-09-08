@@ -57,6 +57,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.g.user_emmet_leader_key = ","
 
 -- Remap `ciw` to cut to the black hole register, preventing it from copying
+-- 剪下的時候不要複製文字
 vim.api.nvim_set_keymap("n", "ciw", '"_ciw', { noremap = true, silent = true })
 
 local symbols = { '"', "'", "(", "{", "[", "<", ">", ")", "}", "]" }
@@ -64,3 +65,4 @@ local symbols = { '"', "'", "(", "{", "[", "<", ">", ")", "}", "]" }
 for _, symbol in ipairs(symbols) do
   vim.api.nvim_set_keymap("n", "ci" .. symbol, '"_ci' .. symbol, { noremap = true, silent = true })
 end
+------------------------------
