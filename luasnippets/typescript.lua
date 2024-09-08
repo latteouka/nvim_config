@@ -21,6 +21,7 @@ return {
   s("th", {
     t("import * as THREE from 'three'"),
   }),
+
   -- react fc
   s("fc", {
     t("const "),
@@ -30,6 +31,23 @@ return {
     t("<div>"),
     i(0),
     t({ "</div>", "\t" }),
+    t({ ")", "\t" }),
+    t("}"),
+    t({ "\t", "export default " }),
+    f(copy, 1),
+  }),
+
+  -- react native fc
+  s("fcrn", {
+    t("const "),
+    i(1, "Name"),
+    t({ " = () => {", "\t" }),
+    t({ "return (", "\t" }),
+    t("<View>"),
+    t("<Text>"),
+    i(0),
+    t("</Text>"),
+    t({ "</View>", "\t" }),
     t({ ")", "\t" }),
     t("}"),
     t({ "\t", "export default " }),
