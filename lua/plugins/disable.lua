@@ -23,4 +23,12 @@ return {
     "rcarriga/nvim-notify",
     enabled = false,
   },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      notifier = { enabled = false },
+      scroll = { enabled = false },
+    },
+  },
 }
