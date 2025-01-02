@@ -54,24 +54,16 @@ return {
   --   end,
   -- },
 
-  {
-    "rcarriga/nvim-notify",
-    enabled = false,
-    opts = {
-      timeout = 5000,
-    },
-  },
-
   -- animations
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      opts.scroll = {
-        enable = false,
-      }
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   opts = function(_, opts)
+  --     opts.scroll = {
+  --       enable = false,
+  --     }
+  --   end,
+  -- },
 
   -- buffer line
   {
@@ -89,7 +81,7 @@ return {
         -- separator_style = "slant",
 
         -- disable icons
-        -- show_buffer_icons = false,
+        show_buffer_icons = false,
 
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -148,36 +140,24 @@ return {
     end,
   },
 
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-      
-██╗      █████╗ ████████╗████████╗███████╗ ██████╗ ██╗   ██╗██╗  ██╗ █████╗ 
-██║     ██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔═══██╗██║   ██║██║ ██╔╝██╔══██╗
-██║     ███████║   ██║      ██║   █████╗  ██║   ██║██║   ██║█████╔╝ ███████║
-██║     ██╔══██║   ██║      ██║   ██╔══╝  ██║   ██║██║   ██║██╔═██╗ ██╔══██║
-███████╗██║  ██║   ██║      ██║   ███████╗╚██████╔╝╚██████╔╝██║  ██╗██║  ██║
-╚══════╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-                                                                            
-
-      ]]
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
-  },
-
-  -- transparent
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  --   {
+  --     "nvimdev/dashboard-nvim",
+  --     event = "VimEnter",
+  --     opts = function(_, opts)
+  --       local logo = [[
+  --
+  -- ██╗      █████╗ ████████╗████████╗███████╗ ██████╗ ██╗   ██╗██╗  ██╗ █████╗
+  -- ██║     ██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔═══██╗██║   ██║██║ ██╔╝██╔══██╗
+  -- ██║     ███████║   ██║      ██║   █████╗  ██║   ██║██║   ██║█████╔╝ ███████║
+  -- ██║     ██╔══██║   ██║      ██║   ██╔══╝  ██║   ██║██║   ██║██╔═██╗ ██╔══██║
+  -- ███████╗██║  ██║   ██║      ██║   ███████╗╚██████╔╝╚██████╔╝██║  ██╗██║  ██║
+  -- ╚══════╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+  --
+  --
+  --       ]]
+  --
+  --       logo = string.rep("\n", 8) .. logo .. "\n\n"
+  --       opts.config.header = vim.split(logo, "\n")
+  --     end,
+  --   },
 }

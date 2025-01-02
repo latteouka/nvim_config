@@ -43,7 +43,7 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
--- keymap.set("n", "te", ":tabedit")
+keymap.set("n", "te", ":tabedit")
 -- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 -- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
@@ -82,16 +82,16 @@ keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 
 -- Stay center when Ctrl-d or Ctrl-u or search
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
-keymap.set("n", "n", "nzzzv")
-keymap.set("n", "N", "Nzzzv")
+-- keymap.set("n", "<C-d>", "<C-d>zz")
+-- keymap.set("n", "<C-u>", "<C-u>zz")
+-- keymap.set("n", "n", "nzzzv")
+-- keymap.set("n", "N", "Nzzzv")
 
 -- Rename
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Wrap
-keymap.set("n", "<leader>w", ":set wrap<CR>")
+-- keymap.set("n", "<leader>w", ":set wrap<CR>")
 -- Code Actions
 
 -- LazyVim uses <leader>ca

@@ -1,25 +1,25 @@
 return {
-  {
-    "echasnovski/mini.hipatterns",
-    event = "BufReadPre",
-    opts = {
-      highlighters = {
-        hsl_color = {
-          pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
-          group = function(_, match)
-            local utils = require("solarized-osaka.hsl")
-            --- @type string, string, string
-            local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
-            --- @type number?, number?, number?
-            local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
-            --- @type string
-            local hex_color = utils.hslToHex(h, s, l)
-            return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
-          end,
-        },
-      },
-    },
-  },
+  -- {
+  --   "echasnovski/mini.hipatterns",
+  --   event = "BufReadPre",
+  --   opts = {
+  --     highlighters = {
+  --       hsl_color = {
+  --         pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
+  --         group = function(_, match)
+  --           local utils = require("solarized-osaka.hsl")
+  --           --- @type string, string, string
+  --           local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
+  --           --- @type number?, number?, number?
+  --           local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
+  --           --- @type string
+  --           local hex_color = utils.hslToHex(h, s, l)
+  --           return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
+  --         end,
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "dinhhuy258/git.nvim",
@@ -144,7 +144,7 @@ return {
       local actions = require("telescope.actions")
       local fb_actions = require("telescope").extensions.file_browser.actions
 
-      opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+      opts.defaults = {
         wrap_results = true,
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
@@ -153,7 +153,7 @@ return {
         mappings = {
           n = {},
         },
-      })
+      }
       opts.pickers = {
         diagnostics = {
           theme = "ivy",
@@ -211,35 +211,41 @@ return {
   "mattn/emmet-vim",
 
   -- snippets
-  {
-    "L3MON4D3/LuaSnip",
-    lazy = true,
-    build = (not LazyVim.is_win())
-        and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
-      or nil,
-    dependencies = {
-      {
-        "nvim-cmp",
-        dependencies = {
-          "saadparwaiz1/cmp_luasnip",
-          config = function()
-            require("luasnip.loaders.from_lua").lazy_load()
-            require("luasnip").filetype_extend("typescriptreact", { "typescript" })
-          end,
-        },
-        opts = function(_, opts)
-          opts.snippet = {
-            expand = function(args)
-              require("luasnip").lsp_expand(args.body)
-            end,
-          }
-          table.insert(opts.sources, { name = "luasnip" })
-        end,
-      },
-    },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   lazy = true,
+  --   build = (not LazyVim.is_win())
+  --       and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
+  --     or nil,
+  --   dependencies = {
+  --     {
+  --       "nvim-cmp",
+  --       dependencies = {
+  --         "saadparwaiz1/cmp_luasnip",
+  --         config = function()
+  --           require("luasnip.loaders.from_lua").load({ paths = "../../luasnippets" })
+  --           require("luasnip").filetype_extend("typescriptreact", { "typescript" })
+  --         end,
+  --       },
+  --       opts = function(_, opts)
+  --         opts.snippet = {
+  --           expand = function(args)
+  --             require("luasnip").lsp_expand(args.body)
+  --           end,
+  --         }
+  --         table.insert(opts.sources, { name = "luasnip" })
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     history = true,
+  --     delete_check_events = "TextChanged",
+  --   },
+  -- },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   config = function()
+  --     require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnippets" })
+  --   end,
+  -- },
 }

@@ -66,3 +66,6 @@ for _, symbol in ipairs(symbols) do
   vim.api.nvim_set_keymap("n", "ci" .. symbol, '"_ci' .. symbol, { noremap = true, silent = true })
 end
 ------------------------------
+
+-- 取消捲動動畫
+vim.g.snacks_animate = false

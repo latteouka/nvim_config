@@ -1,0 +1,39 @@
+{
+  "Console Log": {
+    "prefix": "cl",
+    "body": ["console.log(${0})"],
+    "description": "Insert console.log statement"
+  },
+  "React Functional Component": {
+    "prefix": "fc",
+    "body": [
+      "const ${1:Name} = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t${0}",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "export default ${1:Name};"
+    ],
+    "description": "React functional component template"
+  },
+  "Export Default Function": {
+    "prefix": "fun",
+    "body": [
+      "export default function() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t${0}",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "Export default function"
+  },
+  "For Loop": {
+    "prefix": "fori",
+    "body": ["for (let i = 0; i < ${1:num}; i++) {", "\t${0}", "}"],
+    "description": "For loop template"
+  }
+}
