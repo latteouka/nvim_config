@@ -143,4 +143,18 @@ return {
   --     setup = {},
   --   },
   -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      -- disable virtual_text
+      diagnostics = {
+        virtual_text = false,
+        -- add border
+        float = { border = "rounded" },
+      },
+      inlay_hints = {
+        enabled = false,
+      },
+    },
+  },
 }
