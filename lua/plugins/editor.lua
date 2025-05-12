@@ -11,15 +11,15 @@ return {
   --     },
   --   },
   -- },
-  {
-    "nvim-telescope/telescope.nvim",
-    -- replace all Telescope keymaps with only one mapping
-    keys = function()
-      return {
-        { ";f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      }
-    end,
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   -- replace all Telescope keymaps with only one mapping
+  --   keys = function()
+  --     return {
+  --       { ";f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+  --     }
+  --   end,
+  -- },
 
   -- {
   --   "ibhagwan/fzf-lua",
@@ -27,23 +27,6 @@ return {
   --     -- 新增 fzf-lua 的鍵位，也可以疊加測試
   --     { ";f", "<cmd>FzfLua files<cr>", desc = "Find Files (fzf-lua)" },
   --     { ";r", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep (fzf-lua)" },
-  --
-  --     { ";m", "<cmd>FzfLua marks<cr>", desc = "Marks" },
-  --     {
-  --       "sf",
-  --       function()
-  --         require("fzf-lua").files({
-  --           cwd = vim.fn.expand("%:p:h"),
-  --           winopts = {
-  --             preview = {
-  --               hidden = false,
-  --               vertical = "down:60%", -- optional layout tuning
-  --             },
-  --           },
-  --         })
-  --       end,
-  --       desc = "Open File Browser (simulated) from current buffer dir",
-  --     },
   --   },
   -- },
   {
@@ -56,15 +39,15 @@ return {
       "nvim-telescope/telescope-file-browser.nvim",
     },
     keys = {
-      {
-        "<leader>fP",
-        function()
-          require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
-          })
-        end,
-        desc = "Find Plugin File",
-      },
+      -- {
+      --   "<leader>fP",
+      --   function()
+      --     require("telescope.builtin").find_files({
+      --       cwd = require("lazy.core.config").options.root,
+      --     })
+      --   end,
+      --   desc = "Find Plugin File",
+      -- },
       {
         ";f",
         function()
@@ -87,30 +70,30 @@ return {
         end,
         desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
       },
-      {
-        "\\\\",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.buffers()
-        end,
-        desc = "Lists open buffers",
-      },
-      {
-        ";t",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.help_tags()
-        end,
-        desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
-      },
-      {
-        ";;",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.resume()
-        end,
-        desc = "Resume the previous telescope picker",
-      },
+      -- {
+      --   "\\\\",
+      --   function()
+      --     local builtin = require("telescope.builtin")
+      --     builtin.buffers()
+      --   end,
+      --   desc = "Lists open buffers",
+      -- },
+      -- {
+      --   ";t",
+      --   function()
+      --     local builtin = require("telescope.builtin")
+      --     builtin.help_tags()
+      --   end,
+      --   desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
+      -- },
+      -- {
+      --   ";;",
+      --   function()
+      --     local builtin = require("telescope.builtin")
+      --     builtin.resume()
+      --   end,
+      --   desc = "Resume the previous telescope picker",
+      -- },
       {
         ";e",
         function()
