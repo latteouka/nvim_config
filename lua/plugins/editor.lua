@@ -11,7 +11,41 @@ return {
   --     },
   --   },
   -- },
+  {
+    "nvim-telescope/telescope.nvim",
+    -- replace all Telescope keymaps with only one mapping
+    keys = function()
+      return {
+        { ";f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      }
+    end,
+  },
 
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   keys = {
+  --     -- 新增 fzf-lua 的鍵位，也可以疊加測試
+  --     { ";f", "<cmd>FzfLua files<cr>", desc = "Find Files (fzf-lua)" },
+  --     { ";r", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep (fzf-lua)" },
+  --
+  --     { ";m", "<cmd>FzfLua marks<cr>", desc = "Marks" },
+  --     {
+  --       "sf",
+  --       function()
+  --         require("fzf-lua").files({
+  --           cwd = vim.fn.expand("%:p:h"),
+  --           winopts = {
+  --             preview = {
+  --               hidden = false,
+  --               vertical = "down:60%", -- optional layout tuning
+  --             },
+  --           },
+  --         })
+  --       end,
+  --       desc = "Open File Browser (simulated) from current buffer dir",
+  --     },
+  --   },
+  -- },
   {
     "telescope.nvim",
     dependencies = {
@@ -173,7 +207,7 @@ return {
         },
       }
       telescope.setup(opts)
-      -- require("telescope").load_extension("fzf")
+      require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
     end,
   },

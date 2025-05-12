@@ -96,12 +96,3 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- LazyVim uses <leader>ca
 keymap.set("n", "<leader>qf", ":lua vim.lsp.buf.code_action()<CR>")
-
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)
-
-keymap.set("n", "<C-k>", function()
-  vim.diagnostic.goto_prev()
-end, opts)
